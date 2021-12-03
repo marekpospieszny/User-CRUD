@@ -1,3 +1,5 @@
-public class UserDao {
+public class UserDao extends User {
+
+
 
 }
