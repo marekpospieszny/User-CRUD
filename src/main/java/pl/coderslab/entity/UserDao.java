@@ -57,6 +57,7 @@ public class UserDao extends User {
             return user;
         } catch (SQLException e) {
             System.out.println("Unable to establish connection with database.");
+            e.printStackTrace();
             return null;
         }
     }
@@ -92,6 +93,7 @@ public class UserDao extends User {
             statement.executeUpdate();
         } catch (SQLException e) {
             System.out.println("Unable to establish connection with database.");
+            e.printStackTrace();
         }
 
     }
@@ -104,6 +106,7 @@ public class UserDao extends User {
             statement.executeUpdate();
         } catch (SQLException e) {
             System.out.println("Unable to establish connection with database.");
+            e.printStackTrace();
         }
     }
 
@@ -131,6 +134,7 @@ public class UserDao extends User {
             return allUsers;
         } catch (SQLException e) {
             System.out.println("Unable to establish connection with database.");
+            e.printStackTrace();
             return null;
         }
     }
