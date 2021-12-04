@@ -1,5 +1,7 @@
 package pl.coderslab.entity;
 
+import pl.coderslab.workshop2.BCrypt;
+
 public class UserDao extends User {
 
     private static final String CREATE_USER_QUERY = "INSERT INTO users(email, username, password) VALUES(?,?,?)";
@@ -9,6 +11,12 @@ public class UserDao extends User {
     private static final String UPDATE_USERNAME_QUERY = "UPDATE users SET username = ? WHERE id = ?";
     private static final String UPDATE_PASSWORD_QUERY = "UPDATE users SET password = ? WHERE id = ?";
     private static final String DELETE_USER_QUERY = "DELETE FROM users WHERE id = ?";
+
+    public String hashPassword(String password) {
+        return BCrypt.hashpw(password, BCrypt.gensalt());
+    }
+
+
 
 
 
