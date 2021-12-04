@@ -13,15 +13,13 @@ public class UserDao extends User {
     private static final String READ_USER_QUERY = "SELECT * FROM users WHERE id = ?";
     private static final String READ_USER_EMAIL_QUERY = "SELECT * FROM users WHERE email = ?";
     private static final String UPDATE_USER_QUERY = "UPDATE users SET email = ?, username = ?, password = ? WHERE id = ?";
-    private static final String UPDATE_EMAIL_QUERY = "UPDATE users SET email = ? WHERE id = ?";
-    private static final String UPDATE_USERNAME_QUERY = "UPDATE users SET username = ? WHERE id = ?";
-    private static final String UPDATE_PASSWORD_QUERY = "UPDATE users SET password = ? WHERE id = ?";
     private static final String DELETE_USER_QUERY = "DELETE FROM users WHERE id = ?";
 
     public String hashPassword(String password) {
         return BCrypt.hashpw(password, BCrypt.gensalt());
     }
 
+//  Dodawanie wcześniej stworzonego Usera do bazy danych i pobieranie id wygenerowanego w bazie danych:
     public User create(User user) {
         try (Connection conn = DBUtil.getConnection()) {
             PreparedStatement statement =
@@ -43,6 +41,7 @@ public class UserDao extends User {
         }
     }
 
+//  Wczytywanie danych z bazy danych i ustawianie ich do wskazanego Usera. Metoda wyszukuje po id:
     public User read(int userId) {
         try (Connection connection = DBUtil.getConnection()) {
             User user = new User();
@@ -62,6 +61,7 @@ public class UserDao extends User {
         }
     }
 
+//  Wczytywanie danych z bazy danych i ustawianie ich do wskazanego Usera. Metoda wyszukuje po email:
     public User read(String userEmail) {
         try (Connection connection = DBUtil.getConnection()) {
             User user = new User();
@@ -81,6 +81,7 @@ public class UserDao extends User {
         }
     }
 
+//  Aktualizacja danych na wskazanym Userze. Wcześniej należy pobrać Usera z bazy danych, aby mieć odpowiednie id:
     public void update(User user) {
         try (Connection connection = DBUtil.getConnection()) {
             PreparedStatement statement = connection.prepareStatement(UPDATE_USER_QUERY, Statement.RETURN_GENERATED_KEYS);
@@ -95,6 +96,7 @@ public class UserDao extends User {
 
     }
 
+//  Kasowanie rekordu z bazy danych na podstawie wskazanego id:
     public void delete(int userId) {
         try (Connection connection = DBUtil.getConnection()) {
             PreparedStatement statement = connection.prepareStatement(DELETE_USER_QUERY);
@@ -105,14 +107,14 @@ public class UserDao extends User {
         }
     }
 
-//    SELECT * FROM users
-
+//  Metoda pomocnicza dynamicznie powiększająca tablicę Userów:
     private User[] addToArray(User u, User[] users) {
         User[] tmpUsers = Arrays.copyOf(users, users.length + 1); // Tworzymy kopię tablicy powiększoną o 1.
         tmpUsers[users.length] = u; // Dodajemy obiekt na ostatniej pozycji.
         return tmpUsers; // Zwracamy nową tablicę.
     }
 
+//  Pobiera cała bazę danych users i zapisuje do wskazanej tablicy User[]:
     public User[] findAll () {
         try (Connection connection = DBUtil.getConnection()) {
             User[] allUsers = new User[0];
@@ -131,10 +133,5 @@ public class UserDao extends User {
             System.out.println("Unable to establish connection with database.");
             return null;
         }
-
     }
-
-
-
-
 }
