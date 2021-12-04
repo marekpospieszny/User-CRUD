@@ -2,17 +2,17 @@ package pl.coderslab.entity;
 
 public class User {
 
-    private static int id;
+    private int id;
     private String email;
     private String userName;
     private String password;
 
-    public static int getId() {
+    public int getId() {
         return id;
     }
 
-    public static void setId(int id) {
-        User.id = id;
+    public void setId(int id) {
+       this.id = id;
     }
 
     public String getEmail() {
