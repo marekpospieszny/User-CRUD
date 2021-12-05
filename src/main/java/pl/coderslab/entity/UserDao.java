@@ -1,12 +1,12 @@
 package pl.coderslab.entity;
 
-import pl.coderslab.workshop2.BCrypt;
+import org.mindrot.jbcrypt.BCrypt;
 import pl.coderslab.workshop2.DBUtil;
 
 import java.sql.*;
 import java.util.Arrays;
 
-public class UserDao extends User {
+public class UserDao {
 
     private static final String CREATE_USER_QUERY = "INSERT INTO users(email, username, password) VALUES(?,?,?)";
     private static final String READ_ALL_USERS_QUERY = "SELECT * FROM users";
