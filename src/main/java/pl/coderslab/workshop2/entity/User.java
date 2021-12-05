@@ -1,4 +1,4 @@
-package pl.coderslab.entity;
+package pl.coderslab.workshop2.entity;
 
 public class User {
 

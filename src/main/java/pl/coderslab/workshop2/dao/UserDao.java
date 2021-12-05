@@ -1,6 +1,7 @@
-package pl.coderslab.entity;
+package pl.coderslab.workshop2.dao;
 
 import org.mindrot.jbcrypt.BCrypt;
+import pl.coderslab.workshop2.entity.User;
 import pl.coderslab.workshop2.DBUtil;
 
 import java.sql.*;

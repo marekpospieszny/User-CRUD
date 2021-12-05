@@ -1,11 +1,9 @@
-package pl.coderslab.entity;
+package pl.coderslab.workshop2;
 
-import pl.coderslab.entity.User;
-import pl.coderslab.workshop2.BCrypt;
+import pl.coderslab.workshop2.dao.UserDao;
+import pl.coderslab.workshop2.entity.User;
 
-import java.util.Arrays;
-
-public class MainDao {
+public class Application {
 
     public static void main(String[] args) {
 
@@ -28,7 +26,7 @@ public class MainDao {
 //        userDao.create(user2);
 //        System.out.println(user2.getId());
 //
-////        Pobieranie danych:
+////        Read data:
 //
 //        User user3 = userDao.read(5);
 //        System.out.println(user3.toString());
@@ -53,7 +51,6 @@ public class MainDao {
 ////        Delete data:
 //
 //        userDao.delete(3);
-//
 //        User user8 = new User();
 //        user8.setEmail("email@email.pl");
 //        user8.setUserName("Username");
@@ -65,7 +62,6 @@ public class MainDao {
 //            System.out.println(line);
 //        }
 
-
 //        Password decryption
 //        User testUser = userDao.read(6);
 //        if (BCrypt.checkpw("password",testUser.getPassword())) {
@@ -74,38 +70,14 @@ public class MainDao {
 //            System.out.println("It does not match.");
 //        }
 
-//        User user = userDao.read(2);
-//        User user1 = userDao.read(4);
-//        User user2 = userDao.read(5);
-//        User user3 = userDao.read(6);
-//
-//        user.setEmail("jan.kowalski@coderslab.pl");
-//        user1.setEmail("anna.nowak@coderslab.pl");
-//        user2.setEmail("piotr.nowak@wp.pl");
-//        user3.setEmail("joanna.kowalska@wp.pl");
-//        user.setUserName("JanKowalski");
-//        user1.setUserName("AnnaNowak");
-//        user2.setUserName("PiotrNowak");
-//        user3.setUserName("JoannaKowalska");
-//        user.setPassword("jankowalski");
-//        user1.setPassword("annanowak");
-//        user2.setPassword("piotrnowak");
-//        user3.setPassword("joannakowalska");
-//
-//        userDao.update(user);
-//        userDao.update(user1);
-//        userDao.update(user2);
-//        userDao.update(user3);
-
         User user = new User("rafal.guz@onet.pl","RafalGuz","rafalguz");
         User user1 = new User("aneta.skok@onet.pl","AnetaSkok","anetaskok");
         User user2 = new User("szymon.okno@gmail.com","SzymonOkno","szymonokno");
         User user3 = new User("marcelina.klops@gmail.com","MarcelinaKlops","marcelinaklops");
-//        userDao.create(user);
-//        userDao.create(user1);
-//        userDao.create(user2);
-//        userDao.create(user3);
+        User user4 = new User("marek.rutkowski@coderslab.pl","MarekRutkowski","marekrutkowski");
+        User user5 = new User("maria.gonczewska@coderslab.pl","MariaGonczewska","mariagonczewska");
 
+//        userDao.create(user5);
 
     }
 
