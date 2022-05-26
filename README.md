@@ -1,4 +1,4 @@
-# User-CRUD
+# Workshop2
 Workshop scope was to verify and train knowledge gained after Object Oriented Programming & MySQL/DataBases classes of Java bootcamp.
 
 **Technology**
